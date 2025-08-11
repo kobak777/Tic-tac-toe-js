@@ -1,0 +1,24 @@
+.game-header{
+    font-size: 50px;
+    margin: 2%;
+    padding: 0px;
+}
+
+.game-field td{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: 5px solid black;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column; 
+    gap:12px;
+    align-items: center;
+}
+.start-btn{
+    background-color: rgb(213, 117, 237);
+    font-size: 30px;
+    border-radius: 10%;
+}
