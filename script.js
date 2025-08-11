@@ -181,17 +181,22 @@ settingsBtn.addEventListener("click", () => {
 startBtn.addEventListener("click", startGame);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("ticTacToeTheme");
-  if (savedTheme) {
-    themeSelect.value = savedTheme;
-    document.body.className = savedTheme;
+  let savedTheme = localStorage.getItem("ticTacToeTheme");
+  if (!savedTheme) {
+    savedTheme = "bw"; 
+    localStorage.setItem("ticTacToeTheme", savedTheme);
   }
+  themeSelect.value = savedTheme;
+  document.body.className = savedTheme;
+
   const savedLang = localStorage.getItem("ticTacToeLang");
   if (savedLang) {
     languageSelect.value = savedLang;
   }
+
   updateLanguage(languageSelect.value);
 });
+
 
 themeSelect.addEventListener("change", (e) => {
   const theme = e.target.value.toLowerCase();
