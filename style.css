@@ -202,16 +202,8 @@ body {
   background-color: var(--btn-hover-bg-color);
 }
 
-@media (max-width: 400px) {
-  .game-header {
-    font-size: 8vw;
-  }
-  .start-btn {
-    font-size: 6vw;
-  }
-}
 
- dialog:not([open]) {
+dialog:not([open]) {
   display: none;
 }
 
@@ -229,6 +221,7 @@ dialog {
   flex-direction: column;
   gap: 15px;
 }
+
 
 .dialog-rules, .dialog-settings {
   padding-top: 40px;  
@@ -309,3 +302,47 @@ td {
   pointer-events: none;
   z-index: 1;
 }
+@media (max-width: 400px) {
+  dialog {
+    max-width: 90vw;
+    width: 90vw;
+    padding: 15px 20px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+  }
+  dialog * {
+    font-size: 0.85rem;
+    word-wrap: break-word;
+  }
+
+  .close-btn,
+  .corner-btn {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+
+  .game-header {
+    font-size: 5vw; 
+    margin: 0 5px;
+  }
+
+  .start-btn {
+    font-size: 4vw;
+    padding: 8px 15px;
+    max-width: 100%;
+    width: 90vw;
+  }
+
+  .game-field {
+    width: 90vw;
+    max-width: none;
+    border-width: 3px;
+  }
+
+  .game-field td {
+    border-width: 3px;
+    padding-bottom: 33.33%;
+  }
+}
+

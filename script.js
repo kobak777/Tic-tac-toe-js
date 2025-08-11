@@ -17,7 +17,7 @@ const translations = {
     header: "Tic Tac Toe",
     result: "Let's play!",
     rulesText:
-      "Players take turns placing signs on the empty cells of a 3×3 grid (one always crosses, the other always o's). The first player to arrange three of their pieces in a row, either vertically, horizontally, or diagonally, wins the game. If both players have filled all nine cells and there are no three matching signs in any row, column, or diagonal, the game ends in a draw. The player who places crosses makes the first move. Usually, at the end of the game, the winning side crosses out their three symbols (zeroes or crosses) that make up a continuous row.",
+      "Players take turns placing signs on the empty cells of a 3×3 grid (one always crosses, the other always o's). The first player to arrange three of their pieces in a row, either vertically, horizontally, or diagonally, wins the game. If both players have filled all nine cells and there are no three matching signs in any row, column, or diagonal, the game ends in a draw. The player who places crosses makes the first move.",
     startBtn: "Start",
     winnerX: "X is winner",
     winnerO: "O is winner",
@@ -37,7 +37,7 @@ const translations = {
     header: "Крестики-нолики",
     result: "Давайте играть!",
     rulesText:
-      "Игроки по очереди ставят знаки в пустые клетки сетки 3×3 (один всегда крестики, другой — нолики). Первый, кто выстроит три своих знака по горизонтали, вертикали или диагонали, выигрывает. Если все 9 клеток заполнены и нет выигрышной линии, игра заканчивается ничьей. Крестики ходят первыми. Обычно победившая сторона перечёркивает свои три символа, составляющие линию.",
+      "Игроки по очереди ставят знаки в пустые клетки сетки 3×3 (один всегда крестики, другой — нолики). Первый, кто выстроит три своих знака по горизонтали, вертикали или диагонали, выигрывает. Если все 9 клеток заполнены и нет выигрышной линии, игра заканчивается ничьей. Крестики ходят первыми.",
     startBtn: "Начать",
     winnerX: "Победили крестики",
     winnerO: "Победили нолики",
