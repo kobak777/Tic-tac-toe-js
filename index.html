@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tic Tac Toe</title>
     <script src="./script.js" defer></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <div class="main-section">
-        <h1 id="header" class="game-header" data-game-header>Tic Tac Toe</h1>
+    <main class="main-section">
+        <header class="game-header-container">
+            <button id="rules-btn" class="corner-btn" data-rules-btn>?</button>
+            <h1 id="header" class="game-header" data-game-header>Tic Tac Toe</h1>
+            <button id="settings-btn" class="corner-btn" data-settings-btn>⚙️</button>
+        </header>
         <h2 id="result" class="result-text" data-result-text></h2>
+        <div id="line"></div>
         <table id="field" class="game-field">
             <tr>
                 <td></td>
@@ -31,7 +36,27 @@
         <div class="start-container">
             <button id="start" class="start-btn" data-start-btn>Start</button>
         </div>
-    </div>
-
+        <dialog class="dialog-rules" data-dialog-rules>
+            <button class="close-btn" data-close-rules-btn>X</button>
+            <p class="rules-text">Players take turns placing signs on the empty cells of a 3×3 grid (one always crosses, the other always o's). The first player to arrange three of their pieces in a row, either vertically, horizontally, or diagonally, wins the game. If both players have filled all nine cells and there are no three matching signs in any row, column, or diagonal, the game ends in a draw. The player who places crosses makes the first move. Usually, at the end of the game, the winning side crosses out their three symbols (zeroes or crosses) that make up a continuous row.</p>
+        </dialog>
+        <dialog class="dialog-settings" data-dialog-settings>
+            <button class="close-btn" data-close-rules-btn>X</button>
+            <label for="language-select" id="label-language">Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
+            <label for="theme-select" id="label-theme">Theme:</label>
+            <select id="theme-select">
+                <option value="bw">Черно-белая</option>
+                <option value="lavender">Лавандовая</option>
+                <option value="blue">Синяя</option>
+                <option value="red">Красная</option>
+                <option value="yellow">Желтая</option>
+                <option value="rainbow">Разноцветная</option>
+            </select>
+        </dialog>
+    </main>
 </body>
 </html>

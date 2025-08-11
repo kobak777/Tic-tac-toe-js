@@ -1,24 +1,311 @@
-.game-header{
-    font-size: 50px;
-    margin: 2%;
-    padding: 0px;
+:root {
+  --bg-color: #f9f5fb;
+  --text-color: #4b0082;
+  --field-border-color: #4b0082;
+  --cross-color: #4b0082;
+  --circle-color: #4b0082;
+  --btn-bg-color: rgb(213, 117, 237);
+  --btn-text-color: white;
+  --btn-hover-bg-color: rgb(180, 80, 210);
+  --highlight-color: rgba(75, 0, 130, 0.6);  
 }
 
-.game-field td{
-    width: 150px;
-    height: 150px;
-    text-align: center;
-    border: 5px solid black;
+body.bw {
+  --bg-color: #fff;
+  --text-color: #000;
+  --field-border-color: #000;
+  --cross-color: #000;
+  --circle-color: #000;
+  --btn-bg-color: #000;
+  --btn-text-color: #fff;
+  --btn-hover-bg-color: #222;
+  --highlight-color: rgba(0, 0, 0, 0.3);  
 }
 
-.main-section{
-    display: flex;
-    flex-direction: column; 
-    gap:12px;
-    align-items: center;
+body.blue {
+  --bg-color: #e6f0ff;
+  --text-color: #003366;
+  --field-border-color: #003366;
+  --cross-color: #003366;
+  --circle-color: #003366;
+  --btn-bg-color: #3366cc;
+  --btn-text-color: white;
+  --btn-hover-bg-color: #254a99;
+  --highlight-color: rgba(0, 51, 102, 0.4);  
 }
-.start-btn{
-    background-color: rgb(213, 117, 237);
-    font-size: 30px;
-    border-radius: 10%;
+
+body.yellow {
+  --bg-color: #fff9e6;
+  --text-color: #665500;
+  --field-border-color: #665500;
+  --cross-color: #665500;
+  --circle-color: #665500;
+  --btn-bg-color: #ffcc00;
+  --btn-text-color: #333300;
+  --btn-hover-bg-color: #cca300;
+  --highlight-color: rgba(102, 85, 0, 0.4);  
+}
+
+body.red {
+  --bg-color: #ffe6e6;
+  --text-color: #660000;
+  --field-border-color: #660000;
+  --cross-color: #660000;
+  --circle-color: #660000;
+  --btn-bg-color: #cc0000;
+  --btn-text-color: white;
+  --btn-hover-bg-color: #990000;
+  --highlight-color: rgba(102, 0, 0, 0.4);  
+}
+
+body.rainbow {
+  background: linear-gradient(135deg, #ff0057, #ffdd00, #00ff7f, #00bfff, #bf00ff);
+  --bg-color: transparent;
+  --text-color: rgb(13, 13, 13);
+  --field-border-color: rgb(235, 100, 123);
+  --cross-color: rgb(22, 71, 206);
+  --circle-color: rgb(188, 16, 119);
+  --btn-bg-color: rgba(255, 255, 255, 0.3);
+  --btn-text-color: rgb(13, 13, 13);
+  --btn-hover-bg-color: rgba(255, 255, 255, 0.5);
+  --highlight-color: rgba(255, 255, 255, 0.4); 
+}
+body.rainbow .dialog-settings,
+body.rainbow .dialog-rules {
+  background: linear-gradient(135deg, #ff0057, #ffdd00, #00ff7f, #00bfff, #bf00ff);
+  color: black;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.game-header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.game-header {
+  font-size: 3rem;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.corner-btn {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.corner-btn:hover {
+  background-color: var(--btn-hover-bg-color);
+}
+
+.game-field {
+  border-collapse: collapse;
+  width: 90vw;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  table-layout: fixed;
+  margin-bottom: 20px;
+  border: 5px solid var(--field-border-color);
+}
+
+.game-field td {
+  border: 5px solid var(--field-border-color);
+  width: 33.33%;
+  height: 0;
+  padding-bottom: 33.33%;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.result-text {
+  margin: 0;
+}
+
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10%;
+  height: 100%;
+  background-color: var(--cross-color);
+  transform-origin: center;
+}
+
+.cross::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cross, .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+}
+
+.circle {
+  border: 6px solid var(--circle-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+}
+
+.start-btn {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  font-size: 2vw;
+  border-radius: 10%;
+  padding: 10px 20px;
+  cursor: pointer;
+  max-width: 300px;
+  width: 80vw;
+  transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: var(--btn-hover-bg-color);
+}
+
+@media (max-width: 400px) {
+  .game-header {
+    font-size: 8vw;
+  }
+  .start-btn {
+    font-size: 6vw;
+  }
+}
+
+ dialog:not([open]) {
+  display: none;
+}
+
+dialog {
+  position: relative;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+  border: 2px solid var(--field-border-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 350px;
+  width: 90vw;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dialog-rules, .dialog-settings {
+  padding-top: 40px;  
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--btn-bg-color);
+}
+
+.dialog-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dialog-settings label,
+.dialog-settings select {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.dialog-settings select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--field-border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  appearance: none;
+}
+
+.dialog-settings label {
+  font-weight: bold;
+}
+
+@keyframes highlightFlash {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--highlight-color);
+  }
+}
+
+td {
+  position: relative;  
+}
+
+.highlight {
+  border: none; 
+  background-color: transparent;
+  border-radius: 8px;  
+}
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;  
+  border-radius: 8px;
+  animation: highlightFlash 1s ease-in-out infinite;
+  border: 3px solid var(--highlight-color);
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 1;
 }
